@@ -1,0 +1,16 @@
+<div class="header-nav">
+    <a href="http://127.0.0.1:8000" ><div class="nav-logo"></div></a>
+    <!-- Navigator Items Start -->
+    <ul class="nav-list" id="navMenu">
+        <li class="module"><a class="{% ifequal route 'traffic' %} current {% endifequal %}" href="{% url 'TrafficMonitor:index' %}" >流量监测</a>
+            <div class="ChildMenu">
+                <div class="subC">
+                    <a href="{% url 'TrafficMonitor:fast-monitor' %}">快速流量监测</a>
+                    <a href="{% url 'TrafficMonitor:stats' %}">流量统计</a>
+                    <a href="{% url 'TrafficMonitor:settings' %}">设置</a>
+                </div>
+            </div>
+        </li>
+        <li><a href="ConfigManagement" class="module">配置备份</a></li>
+    </ul>
+</div>

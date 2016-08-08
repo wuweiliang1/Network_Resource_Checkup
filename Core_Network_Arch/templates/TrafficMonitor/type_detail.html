@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'TrafficMonitor/css/style.css' %}" />
+    <script type="text/javascript" src="{% static 'TrafficMonitor/js/jquery-1.12.4.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'TrafficMonitor/js/common.js' %}"></script>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% include "TrafficMonitor/header-nav.html" with route="traffic" %}
+{% include "TrafficMonitor/construction.html" %}
+</body>
+</html>

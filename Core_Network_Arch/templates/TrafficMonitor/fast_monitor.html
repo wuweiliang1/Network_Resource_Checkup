@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'TrafficMonitor/css/style.css' %}" />
+    <script type="text/javascript" src="{% static 'TrafficMonitor/js/jquery-1.12.4.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'TrafficMonitor/js/common.js' %}"></script>
+    <script type="text/javascript" src="{% static 'TrafficMonitor/js/hc/js/highcharts.js' %}"></script>
+    <script type="text/javascript" src="{% static 'TrafficMonitor/js/hc/js/modules/exporting.js' %}"></script>
+    <script type="text/javascript" src="{% static 'TrafficMonitor/js/draw.js' %}"></script>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% include "TrafficMonitor/header-nav.html" with route="traffic" %}
+<div id="container" style="margin-top:100px; width:400px; height:400px;"></div>
+{% include "TrafficMonitor/footer.html" %}
+</body>
+</html>

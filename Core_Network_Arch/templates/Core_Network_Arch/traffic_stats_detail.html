@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'Core_Network_Arch/css/style.css' %}" />
+    <script type="text/javascript" src="{% static 'Core_Network_Arch/js/jquery-1.12.4.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'Core_Network_Arch/js/common.js' %}"></script>
+    <script type="text/javascript" src="{% static 'Core_Network_Arch/js/hc/js/highcharts.js' %}"></script>
+    <script type="text/javascript" src="{% static 'Core_Network_Arch/js/hc/js/modules/exporting.js' %}"></script>
+    <script type="text/javascript" src="{% static 'Core_Network_Arch/js/draw.js' %}"></script>
+    <script type="text/javascript">
+    {% for %}
+    $.get("http://127.0.0.1:8000/Core_Network_Arch/TrafficDetail/BulkData",{link_id:1,report_id:1},function (result){
+        draw_monthly(result)
+    })
+    </script>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="container"></div>
+</body>
+</html>

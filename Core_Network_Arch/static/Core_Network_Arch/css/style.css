@@ -1,0 +1,149 @@
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
+}
+
+body {
+    background: #f6f6f6;
+    font-family: "microsoft yahei", simhei, arial, sans-serif;
+}
+
+
+.GraphBox {
+    margin-left: auto;
+    margin-right: auto;
+    width : 100%;
+    -moz-border-radius: 15px;      /* Gecko browsers */
+    -webkit-border-radius: 15px;   /* Webkit browsers */
+    border-radius:15px;
+
+}
+.remove_type{
+
+}
+
+body {
+    background-color:#E8F1F4
+}
+
+div#report_header {
+    width: auto;
+    height: 350px;
+    background: url("../img/main_box_style1.jpg") no-repeat;
+}
+
+#report_header h1 {
+    color: black;
+    font-size: 30px;
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 10px;
+}
+
+#main_wrapper {
+    width:1000px;
+    margin-left:auto;
+    margin-right:auto;
+    margin-bottom:10px;
+    border: 1px solid #4bacf3;
+    padding:2px 1px 2px 1px;
+    border-top-width:0px;
+}
+
+#report_header ol {
+    /* height:50px; */
+    width:1000px;
+    margin-left:auto;
+    margin-right:auto;
+    padding-top: 15px;
+    line-height: 200%;
+}
+
+.device_box span.notification {
+    text-align: center;
+    display: block;
+    color: blue;
+    font-size: 15px;
+}
+
+.farm_box span.notification {
+    text-align: center;
+    display: block;
+    color: blue;
+    font-size: 15px;
+}
+
+h2.farm {
+    display: block;
+    text-align: center;
+    font-size: 27px;
+    font-weight: normal;
+    margin: 5px 0px 5px 0px;
+}
+
+h2#remark_title {
+    display: block;
+    text-align: center;
+    font-size: 22px;
+    font-weight: normal;
+    margin: 5px 0px 5px 0px;
+}
+
+#remark{
+    min-height:50px;
+
+}
+
+h3.device {
+    display: block;
+    text-align: center;
+    padding: 2px 0px 1px 0px;
+    font-weight: normal;
+    font-size: 22px;
+    font-family: times new roman;
+}
+
+#summary_text {
+    text-indent:2em;
+}
+
+#report_header ol li a {
+    color: blue;
+    text-decoration: none;
+}
+
+#report_header ol li {
+    color: blue;
+    margin-left: 100px;
+}
+
+#top_split {
+    size:1px;
+    color:black;
+    margin: 0;
+    border-bottom: 0;
+}
+
+.footer {
+    display:block;
+    text-align:center;
+    margin-left:auto;
+    margin-right:auto;
+    padding-bottom:2px;
+}

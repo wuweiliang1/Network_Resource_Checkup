@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'Core_Network_Arch/css/style.css' %}" />
+    <script type="text/javascript" src="{% static 'Core_Network_Arch/js/jquery-1.12.4.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'Core_Network_Arch/js/common.js' %}"></script>
+    <script type="text/javascript" src="{% static 'Core_Network_Arch/js/hc/js/highcharts.js' %}"></script>
+    <!--<script type="text/javascript" src="{% static 'Core_Network_Arch/js/hc/js/modules/exporting.js' %}"></script>-->
+    <script type="text/javascript" src="{% static 'Core_Network_Arch/js/hc/js/themes/sand-signika.js' %}"></script>
+    <script type="text/javascript" src="{% static 'Core_Network_Arch/js/draw.js' %}"></script>
+    <script type="text/javascript">
+    {% for link in report_details.links %}
+        $.get("/Core_Network_Arch/TrafficDetail/BulkData",{link_id:{{ link.id }},report_id:{{ report_details.report.id }}},function (result){
+        draw_monthly(result,{{link.id}},"{{link.name}}({{link.description}})",{{link.maximum_speed}})
+        })
+    {% endfor %}
+
+    </script>
+    <meta charset="UTF-8">
+    <title>{{report_details.report.name}}</title>
+</head>
+<body>
+<div id="report_header">
+    <div id="global_header">
+    </div>
+    <h1>{{report_details.report.name}}</h1>
+    <ol>
+        {% for farm, device_dict in report_details.detail_dict.items %}
+        <li><a href="#farm_{{forloop.counter}}">{{farm}}</a></li>
+        {% endfor %}
+        <li><a href="#remark">报表备注与小结</a></li>
+    </ol>
+
+</div>
+<hr id="top_split">
+<div id="main_wrapper">
+{% for farm, device_dict in report_details.detail_dict.items %}
+<div class="farm_box" id="farm_{{ forloop.counter }}"><h2 class="farm">{{ farm }}</h2>
+    {% if not device_dict %}
+        <span class="notification">暂无设备被加入该域下进行统计</span>
+    {% else %}
+        {% for device,stats in device_dict.items %}
+            <div class="device_box"><h3 class="device">{{ device }}</h3>
+            {% if not stats %}
+               <span class="notification">暂无链路被加入到该设备下进行统计</span>
+            {% else %}
+               {% for stat in stats %}
+                  <div class="GraphBox" id="container_{{ stat.link.id }}"></div>
+               {% endfor %}
+            {% endif %}
+            </div>
+        {% endfor %}
+    {% endif %}
+</div>
+    <hr>
+{% endfor %}
+    <div id="remark">
+        <h2 id="remark_title">报表备注与小结</h2>
+        <p id="summary_text">
+            {{ report_details.report.summary }}
+        </p>
+    </div>
+</div>
+<p class="footer">太平洋网络网络系统部网络组制</p>
+    <!--{% for device in report_details.detail_dict.farm %}-->
+    <!--<p>{{ device }}</p>-->
+        <!--{% for link in report_details.detail_dict.farm.device %}-->
+        <!--<p>{{ link }}</p>-->
+        <!--<div class="GraphBox" id="container_{{ link.id }}"></div>-->
+        <!--{% endfor %}-->
+    <!--{% endfor %}-->
+
+
+</body>
+</html>

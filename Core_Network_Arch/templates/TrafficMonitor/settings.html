@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'TrafficMonitor/css/style.css' %}" />
+    <script type="text/javascript" src="{% static 'TrafficMonitor/js/jquery-1.12.4.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'TrafficMonitor/js/common.js' %}"></script>
+    <script type="text/javascript" src="{% static 'TrafficMonitor/js/settings.js' %}"></script>
+    <meta charset="UTF-8">
+    <title>网络流量监控</title>
+</head>
+<body>
+{% include "TrafficMonitor/header-nav.html" with route="traffic" %}
+<div id="MainWrapper" style="position:relative;top:50px;">
+<!-- Settings Items Start -->
+    <div class="SubSettings" id="DeviceType">
+        <h3 class="settingshead">设备类型设置</h3>
+        <div>
+            <div><h4>当前设备类型</h4>
+                <ul>
+                    {% for devicetype in settings.type %}
+                    <li> {{forloop.counter}} {{devicetype}}<a class="remove_type" href="{% url 'TrafficMonitor:remove_type' %}?id={{ devicetype.id }}">删除条目</a></li>
+                    {% endfor %}
+                </ul>
+
+            </div>
+            <div>
+                <h4>添加设备类型</h4>
+                <form action="{% url 'TrafficMonitor:create_type' %}" method="post">
+                    {% csrf_token %}
+                    <span>设备类型名称<input type="text" name="name" /></span>
+                    <span><input type="checkbox" name="feature_nx_api" />支持NX-API特性</span>
+                    <span><input type="checkbox" name="feature_snmp" />支持SNMP管理</span>
+                    <span><input type="checkbox" name="feature_sflow" />支持sFlow采集</span>
+                    <input type="submit" value="添加类型" />
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% include "TrafficMonitor/footer.html" %}
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'TrafficMonitor/css/style.css' %}" />
+    <script type="text/javascript" src="{% static 'TrafficMonitor/js/jquery-1.12.4.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'TrafficMonitor/js/common.js' %}"></script>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% include "TrafficMonitor/header-nav.html" with route="traffic" %}
+<div>
+    {% if type_list %}
+        <ul>
+            {% for type in type_list %}
+            <li><a href="{% url 'TrafficMonitor:type_detail' type.id %}">{{ type.name }}</a></li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No types are available</p>
+    {% endif %}
+</div>
+</body>
+</html>

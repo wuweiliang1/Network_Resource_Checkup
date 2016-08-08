@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    {% if reports %}
+    <h1>流量报告列表</h1>
+    <ul>
+    {% for report in reports %}
+        <li>{{forloop.counter}} {{report}} 创建日期:{{report.created_time}}<a class="report_list" href="{% url 'Core_Network_Arch:report_detail' report.id %}">详细信息</a></li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    <h1>报告生成管理</h1>
+    <form action="{% url 'Core_Network_Arch:create_monthly_report' %}" method="get">
+        <label for="year_month">需要生成报表的月份</label>
+        <input id="report_time" type="month" name="report_time">
+        <input type="submit" value="生成报告">
+    </form>
+</body>
+</html>
