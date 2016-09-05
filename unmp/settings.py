@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'Core_Network_Arch.apps.CoreNetworkArchConfig',
+    'Ip_Mgmt.apps.IpMgmtConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

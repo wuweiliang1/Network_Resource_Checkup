@@ -1,0 +1,28 @@
+div#main_box {
+    height: 400px;
+    width: 1000px;
+    margin: auto;
+}
+
+div .wrapper {
+    height: 200px;
+    width: 200px;
+    float: left;
+    margin: 12px 34px 0px 30px;
+    background-color: #54b79c;
+}
+
+.wrapper h2 a {text-decoration: none;color: aliceblue;line-height: 200%;font-family: 微软雅黑;}
+
+.wrapper h2 {
+    /* padding: 28px 0px 0px 28px; */
+    display: block;
+    /* margin: 15px 15px 15px 15px; */
+    width: 100px;
+    height: 100px;
+    margin: 50px auto;
+}
+
+h1#title {
+    font-family: 微软雅黑;
+}

@@ -15,8 +15,11 @@ Including another URLconf
 """
 from django.conf.urls import url,include
 from django.contrib import admin
-
+from Core_Network_Arch import views
 urlpatterns = [
+    url(r'^$', views.IndexView.as_view()),
     url(r'^admin/', admin.site.urls),
-    url(r'^Core_Network_Arch/', include('Core_Network_Arch.urls'))
+    url(r'^Core_Network_Arch/', include('Core_Network_Arch.urls')),
+    url(r'^Utils/ip/', include('Ip_Mgmt.urls')),
+
 ]

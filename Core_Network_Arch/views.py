@@ -5,7 +5,7 @@ from django.views import generic
 from .models import *
 from django.utils import timezone
 from Module.Core_Network_Arch.cacti import CactiDataAnalyzer
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import login_required,permission_required
 import json
 import datetime
 import threading
@@ -15,7 +15,10 @@ import collections
 # Create your views here.
 
 class IndexView(generic.ListView):
-    pass
+    template_name = 'Core_Network_Arch/index.html'
+
+    def get_queryset(self):
+        return None
 
 
 class ReportListView(generic.ListView):
@@ -138,6 +141,7 @@ def create_single_traffic_data(request):
         return HttpResponse('Successful!')
 
 
+@permission_required('admin', login_url='/admin/')
 def create_monthly_report(request):
     if request.method == 'GET':
         try:

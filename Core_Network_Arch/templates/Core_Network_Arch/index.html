@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'Core_Network_Arch/css/index.css' %}" />
+    <title>Network Management Platform</title>
+</head>
+<body>
+    <h1 style="text-align:center" id="title">管理平台</h1>
+    <div id="main_box">
+        <div class="wrapper" id="core"><h2><a href="{% url 'Core_Network_Arch:report_list' %}">网络流量报表程序</a></h2></div>
+        <div class="wrapper" id="query_page"><h2><a href="{% url 'Ip_Mgmt:query_page' %}">IP段特殊地址查询</a></h2></div>
+        <div class="wrapper" id="query_page"><h2><a href="{% url 'admin:index' %}">管理平台登录入口</a></h2></div>
+    </div>
+
+
+</body>
+</html>

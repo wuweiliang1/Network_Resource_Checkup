@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'Core_Network_Arch/css/style.css' %}" />
+    <meta charset="UTF-8">
+    <title>网段内特殊IP地址查询</title>
+</head>
+<body>
+<div id="main_box">
+    {% csrf_token %}
+    <form action="{% url 'Ip_Mgmt:query_via_ip' %}" method="get">
+        <label for="query_ip">待查询IP地址</label>
+        <input id="query_ip" type="text" name="query_ip" value="举例:192.168.218.55">
+        <input type="submit" value="查询网段信息">
+    </form>
+</div>
+</body>
+</html>
